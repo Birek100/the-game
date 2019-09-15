@@ -5,6 +5,7 @@ app.use('/static', express.static('public'));
 app.get('/', (req, res) => res.send(`<html>
 <head>
 <link rel="stylesheet" type="text/css" href="/static/styles.css">
+<script src="/static/scripts.js"></script>
 <title>Penguin Game</title>
 </head>
 <body>
