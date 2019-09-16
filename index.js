@@ -9,10 +9,10 @@ app.get('/', (req, res) => res.send(`<html>
 <title>Penguin Game</title>
 </head>
 <body>
+<div class="container">
 <header>
 <h1>Pinguins Game</h1>
 </header>
-<div class="container">
 <section>
 <form action="#" method="post" autocomplete="off">
 <div class="register">
