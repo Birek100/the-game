@@ -5,13 +5,14 @@ app.use('/static', express.static('public'));
 app.get('/', (req, res) => res.send(`<html>
 <head>
 <link rel="stylesheet" type="text/css" href="/static/styles.css">
+<script src="/static/scripts.js"></script>
 <title>Penguin Game</title>
 </head>
 <body>
+<div class="container">
 <header>
 <h1>Pinguins Game</h1>
 </header>
-<div class="container">
 <section>
 <form action="#" method="post" autocomplete="off">
 <div class="register">
