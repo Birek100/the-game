@@ -6,7 +6,7 @@ app.use('/static', express.static('public'));
 
 const data = fs.readFileSync('./views/login.html','utf8' ,(err, data) => {
   if (err) throw err;
-  console.log(data);
+  console.log();
 });
 
 app.get('/', (req, res) => res.send(data))
