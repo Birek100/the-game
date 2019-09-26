@@ -9,4 +9,7 @@ app.use('/static', express.static('public'));
 app.get('/', (req, res) => res.send(loginHTML))
 app.get('/game', (req, res) => res.send(gameHTML))
 app.get('/register', (req, res) => res.send(registerHTML))
+app.use('/static', express.static('public'));
+app.get('/', (req, res) => res.send(loginHTML))
+app.get('/game', (req, res) => res.send(gameHTML))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
