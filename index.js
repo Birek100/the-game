@@ -14,7 +14,7 @@ app.post('/register', (req, res) => {
   console.log(req.body)
   const email = req.body.email
   const password = req.body.password
-  fs.appendFileSync('message.txt', email + ':' + password +'\n', {'flags': 'a+'});
+  fs.appendFileSync('users.db', email + ':' + password +'\n', {'flags': 'a+'});
   res.end() 
 })
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
