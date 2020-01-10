@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/static/styles.css">
 	<script src="/static/scripts.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 	<title>Penguin Game</title>
 </head>
 
@@ -10,28 +11,37 @@
 	<div class="container">
 		
 		<header>
-			<h1>Penguin Game</h1>
+			<div class = "masthead">
+				Penguin Game
+			</div>
 		</header>
 	
-	<section>
-		<form action="/login-auth" method="get" autocomplete="off">
-		<div class="register">
-			<label for="name">Name</label><br>
-			<input name="name" type="text" required>
+		<section>
+		<div class="container">	
+			
+		
+				<form action="/login-auth" method="get" autocomplete="off">
+				<div class="register">
+					<label for="name">Name</label><br>
+					<input name="name" type="text" required>
+				</div>
+				<div class="register">
+					<label for="password">Password</label><br>
+					<input name="password" type="password" required>
+				</div>
+				<div class="register">
+					<input type="submit" value="Play">
+				</div>
+				</form>
+			
 		</div>
-		<div class="register">
-			<label for="password">Password</label><br>
-			<input name="password" type="password" required>
-		</div>
-		<div class="register">
-			<input type="submit" value="Play">
-		</div>
-	</form>
-	</section>
+		</section>
 	
-	<footer>
-		All rights reserved &copy
-	</footer>
+		<footer>
+			<div class = "foot">		
+				All rights reserved &copy
+			</div>
+		</footer>
 	
 	</div>
 

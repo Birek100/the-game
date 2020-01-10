@@ -3,22 +3,56 @@ body {
    background-size: 100%;
    background-attachment: fixed;
 }
-header {
-	text-align: center
-}
-div.container {
+
+.container {
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
+	overflow: auto;
 }
-footer {
-	margin-top: 15px;
+
+.masthead {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 38px;
 }
+
+
+.content  {
+	min-width: 630px;
+	float: left;
+	padding: 40px;
+	min-height: 540px;
+}
+
+.menu {
+	margin-top: 20px;
+	width: 148px;
+	background: #7e7e77;
+	float: left;
+	padding: 20px;
+	min-height: 540px;
+	border: 2px dashed;
+	font-size: 18px;
+	text-align: center;
+
+}
+
+.foot {
+	clear: both;
+	text-align: center;
+	padding: 20px;
+	font-size: 18px;
+	color: #4e2489;
+}
+
+
 form{
 	padding: 15px;
 }
 form div.register {
-	margin: auto;
-	margin-bottom: 10px;
+	text-align: center;
+	margin-top: 10px;
 }
 form input {
 	padding: 5px;
@@ -26,4 +60,5 @@ form input {
 }
 div.register_html {
 	text-align: center;
+	margin-top: 10px;
 }
