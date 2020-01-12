@@ -8,29 +8,22 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
   }
-
-
 body {
    background: url("background.jpg");
    background-size: 100%;
-   background-attachment: fixed;
-  
+   background-attachment: fixed;  
 }
-
 .container {
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	overflow: auto;
 }
-
 .masthead {
 	text-align: center;
 	font-family: 'Lobster', cursive;
 	font-size: 38px;
 }
-
-
 .content  {
 	width: 75%;
 	float: left;
@@ -38,7 +31,6 @@ body {
 	min-height: 540px;
 	display:inline;
 }
-
 .menu {
 	margin-top: 20px;
 	width: 25%;
@@ -52,7 +44,6 @@ body {
 	display:inline;
 
 }
-
 .foot {
 	clear: both;
 	text-align: center;
@@ -60,8 +51,6 @@ body {
 	font-size: 18px;
 	color: #4e2489;
 }
-
-
 form{
 	padding: 15px;
 }
