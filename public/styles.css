@@ -11,7 +11,7 @@ html {
 body {
    background: url("background.jpg");
    background-size: 100%;
-   background-attachment: fixed;  
+   background-attachment: fixed; 
 }
 .container {
 	width: 80%;
@@ -39,9 +39,10 @@ body {
 	padding: 20px;
 	min-height: 540px;
 	border: 2px dashed;
+	border-radius: 15px;
 	font-size: 18px;
 	text-align: center;
-	display:inline;
+	
 
 }
 .foot {
@@ -63,6 +64,10 @@ form input {
 	border-radius: 5px;
 }
 div.register_html {
+	text-align: center;
+	margin-top: 10px;
+}
+div.Login_html {
 	text-align: center;
 	margin-top: 10px;
 }
