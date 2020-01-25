@@ -42,8 +42,8 @@ app.get('/login-auth', (req, res) => {
 		}
 		
 		else {
-			res.send(errloginHTML);
-			return;
+  			res.redirect('/login?err'); 
+			return ;
 		}
 	}
 });
