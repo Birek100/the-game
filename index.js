@@ -11,7 +11,31 @@ const errloginHTML = fs.readFileSync('./views/errlogin.html', 'utf8');
 app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
-app.get('/', (req, res) => res.send(loginHTML));
+app.get('/', (req, res) => {
+	const r = req.query;
+	console.log(req.query);
+	
+ if (r.hasOwnProperty('err')) {
+ 	console.log('jest ok')
+
+ function () {
+ 		console.log('wnetrze funkcji');
+ 		
+ 	}
+/*	 function funkcja() {
+  var str = document.getElementById("demo").innerHTML; 
+  var res = str.replace("{error}", "Nowy Error");
+  document.getElementById("demo").innerHTML = res;
+  console.log(res);
+  return funkcja(); 
+} */
+	}
+	else {
+		res.send(loginHTML);
+	} 
+
+});
+
 app.get('/game', (req, res) => res.send(gameHTML));
 app.get('/register', (req, res) => res.send(registerHTML));
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
