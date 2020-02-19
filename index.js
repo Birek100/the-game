@@ -16,13 +16,12 @@ app.get('/', (req, res) => {
 	console.log(req.query);
 	
  if (r.hasOwnProperty('err')) {
- 	console.log('jest ok')
-
- function () {
- 		console.log('wnetrze funkcji');
- 		
- 	}
-/*	 function funkcja() {
+  var str = '<div class="demo">{error}</div>'
+  str.replace('{error}', 'Nowy Error');
+  
+/*	 
+var res = 
+function funkcja() {
   var str = document.getElementById("demo").innerHTML; 
   var res = str.replace("{error}", "Nowy Error");
   document.getElementById("demo").innerHTML = res;
