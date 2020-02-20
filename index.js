@@ -15,24 +15,14 @@ app.get('/', (req, res) => {
 	const r = req.query;
 	console.log(req.query);
 	
- if (r.hasOwnProperty('err')) {
-  var str = '<div class="demo">{error}</div>'
-  str.replace('{error}', 'Nowy Error');
-  
-/*	 
-var res = 
-function funkcja() {
-  var str = document.getElementById("demo").innerHTML; 
-  var res = str.replace("{error}", "Nowy Error");
-  document.getElementById("demo").innerHTML = res;
-  console.log(res);
-  return funkcja(); 
-} */
+	if (r.hasOwnProperty('err')) {
+  		const errorLogin = loginHTML.replace('{error}', '<div class=error>Login Error</div>');
+  		res.send(errorLogin);
 	}
 	else {
-		res.send(loginHTML);
+		const noneErrorLogin = loginHTML.replace('{error}', '');
+		res.send(noneErrorLogin);
 	} 
-
 });
 
 app.get('/game', (req, res) => res.send(gameHTML));
