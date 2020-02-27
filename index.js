@@ -12,10 +12,8 @@ app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
 app.get('/', (req, res) => {
-	const r = req.query;
-	console.log(req.query);
-	
-	if (r.hasOwnProperty('err')) {
+	const queryparameter = req.query;
+	if (queryparameter.hasOwnProperty('err')) {
   		const errorLogin = loginHTML.replace('{error}', '<div class=error>Login Error</div>');
   		res.send(errorLogin);
 	}
