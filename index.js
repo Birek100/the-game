@@ -12,8 +12,7 @@ app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
 app.get('/', (req, res) => {
-	const queryparameter = req.query;
-	if (queryparameter.hasOwnProperty('err')) {
+	if (req.query.hasOwnProperty('err')) {
   		const errorLogin = loginHTML.replace('{error}', '<div class=error>Login Error</div>');
   		res.send(errorLogin);
 	}
@@ -39,19 +38,16 @@ app.get('/login-auth', (req, res) => {
 	const pass = req.query.password;
 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
 
-	for(let i = 0; i < registeredUsers.length; i++)
-	{
+	for(let i = 0; i < registeredUsers.length; i++) {
 		const user = registeredUsers[i];
 		const n = user.split(':')[0];
 		const p = user.split(':')[1];
 		
-
 		if (n === name && p === pass) {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
 			return;
-		}
-		
+		}	
 		else {
   			res.redirect('/?err'); 
 			return ;
