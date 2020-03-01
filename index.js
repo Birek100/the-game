@@ -11,7 +11,17 @@ const errloginHTML = fs.readFileSync('./views/errlogin.html', 'utf8');
 app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
-app.get('/', (req, res) => res.send(loginHTML));
+app.get('/', (req, res) => {
+	if (req.query.hasOwnProperty('err')) {
+  		const errorLogin = loginHTML.replace('{error}', '<div class=error>Login Error</div>');
+  		res.send(errorLogin);
+	}
+	else {
+		const noneErrorLogin = loginHTML.replace('{error}', '');
+		res.send(noneErrorLogin);
+	} 
+});
+
 app.get('/game', (req, res) => res.send(gameHTML));
 app.get('/register', (req, res) => res.send(registerHTML));
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
@@ -28,22 +38,19 @@ app.get('/login-auth', (req, res) => {
 	const pass = req.query.password;
 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
 
-	for(let i = 0; i < registeredUsers.length; i++)
-	{
+	for(let i = 0; i < registeredUsers.length; i++) {
 		const user = registeredUsers[i];
 		const n = user.split(':')[0];
 		const p = user.split(':')[1];
 		
-
 		if (n === name && p === pass) {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
 			return;
-		}
-		
+		}	
 		else {
-			res.send(errloginHTML);
-			return;
+  			res.redirect('/?err'); 
+			return ;
 		}
 	}
 });
