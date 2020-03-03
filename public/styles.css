@@ -50,6 +50,9 @@ body {
 	font-size: 18px;
 	color: #4e2489;
 }
+.content-reglog{
+	text-align:center;
+}
 .login-form {
 	text-align: center;
 	margin-top: 30px;

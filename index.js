@@ -23,19 +23,41 @@ app.get('/', (req, res) => {
 });
 
 app.get('/game', (req, res) => res.send(gameHTML));
-app.get('/register', (req, res) => res.send(registerHTML));
+app.get('/register', (req, res) => {
+	if (req.query.hasOwnProperty ('err')) {
+		const errorRegister = registerHTML.replace('{error}', '<div class=error>User Exists</div>');
+		res.send(errorRegister);
+	}
+	else{
+		const noneErrorRegister = registerHTML.replace('{error}', '');
+		res.send(noneErrorRegister);
+	}
+	//res.send(registerHTML);
+})
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
 
 app.post('/register', (req, res) => {
  	const email = req.body.email;
  	const password = req.body.password;
- 	fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
- 	res.end();
+ 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
+	for(let i = 0; i < registeredUsers.length; i++) {
+		const user = registeredUsers[i];
+		const e = user.split(':')[0];
+		if (e == email) {
+			res.redirect('/register/?err'); 
+			return;
+		}	
+		else {
+  			fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+ 			res.redirect('/'); 
+			return ;
+		}
+	}
 });
 
 app.get('/login-auth', (req, res) => {
 	const name = req.query.name;
-	const pass = req.query.password;
+	const password = req.query.password;
 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
 
 	for(let i = 0; i < registeredUsers.length; i++) {
@@ -43,7 +65,7 @@ app.get('/login-auth', (req, res) => {
 		const n = user.split(':')[0];
 		const p = user.split(':')[1];
 		
-		if (n === name && p === pass) {
+		if (n === name && p === password) {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
 			return;
