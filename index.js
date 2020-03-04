@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
 		res.send(noneErrorLogin);
 	} 
 });
-
 app.get('/game', (req, res) => res.send(gameHTML));
 app.get('/register', (req, res) => {
 	if (req.query.hasOwnProperty ('err')) {
@@ -32,10 +31,8 @@ app.get('/register', (req, res) => {
 		const noneErrorRegister = registerHTML.replace('{error}', '');
 		res.send(noneErrorRegister);
 	}
-	//res.send(registerHTML);
 })
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
-
 app.post('/register', (req, res) => {
  	const email = req.body.email;
  	const password = req.body.password;
@@ -54,7 +51,6 @@ app.post('/register', (req, res) => {
 		}
 	}
 });
-
 app.get('/login-auth', (req, res) => {
 	const name = req.query.name;
 	const password = req.query.password;
@@ -75,5 +71,4 @@ app.get('/login-auth', (req, res) => {
 		}
 	}
 });
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
