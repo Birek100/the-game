@@ -64,7 +64,6 @@ app.get('/login-auth', (req, res) => {
 		const user = registeredUsers[i];
 		const n = user.split(':')[0];
 		const p = user.split(':')[1];
-		
 		if (n === name && p === password) {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
