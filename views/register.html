@@ -7,9 +7,10 @@
 </head> 
 <body> 	
 	<div class="container">
-		<header class ="masthead">
+		<header class="masthead">
 			Penguin Game
-		</header>	
+		</header>
+		{error}
 		<form class="login-form" action="/register" method="post" autocomplete="off">
 			<div class="login-form__row">
 				<label class="login-form__label" for="email">Email</label><br>
@@ -22,7 +23,10 @@
 			<div class="login-form__row">
 				<input class="login-form__submit" type="submit" value="Submit">
 			</div>
-			</form>
+		</form>
+		<div class="content-reglog">
+			If you created account please <a href='/'>sign up</a>
+		</div>
 		<footer class="foot">
 			All rights reserved &copy	
 		</footer>

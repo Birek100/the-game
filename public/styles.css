@@ -44,11 +44,24 @@ body {
 	text-align: center;
 }
 .foot {
+	margin-top: 15px;
 	clear: both;
 	text-align: center;
 	padding: 20px;
 	font-size: 18px;
-	color: #4e2489;
+	color: #8000ff;
+}
+.content-reglog{
+	margin-top: 50px;
+	text-align:center;
+	color: #ffff66;
+	font-size: 24px;
+}
+.content-reglog a{
+	color:#ff3377;
+}
+.content-reglog a:hover{
+	color:#ff3377;
 }
 .login-form {
 	text-align: center;
