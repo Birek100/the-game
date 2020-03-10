@@ -36,21 +36,26 @@ app.get('/errlogin', (req, res) => res.send(errloginHTML));
 app.post('/register', (req, res) => {
  	const email = req.body.email;
  	const password = req.body.password;
- 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
-	for(let i = 0; i < registeredUsers.length; i++) {
-		const user = registeredUsers[i];
-		const e = user.split(':')[0];
-		if (e == email) {
-			res.redirect('/register/?err'); 
-			return;
-		}	
-		else {
-  			fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
- 			res.redirect('/'); 
-			return ;
-		}
-	}
+ 	if (fs.existsSync('users.db')) {	
+ 		const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
+		for(let i = 0; i < registeredUsers.length; i++) {
+			const user = registeredUsers[i];
+			const e = user.split(':')[0];
+			if (e == email) {
+				res.redirect('/register/?err'); 
+				return;
+				}	
+			else {
+  				fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+ 				res.redirect('/'); 
+				return ;
+			}
+		}}
+else {fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+		res.redirect('/'); 
+		return ;}
 });
+
 app.get('/login-auth', (req, res) => {
 	const name = req.query.name;
 	const password = req.query.password;
