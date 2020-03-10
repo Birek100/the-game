@@ -64,11 +64,17 @@ app.get('/login-auth', (req, res) => {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
 			return;
-		}	
-		else {
+		}
+		if (i == registeredUsers.length - 1) {
+			
+			//console.log('i rowne3')
   			res.redirect('/?err'); 
 			return ;
+			//continue;
+			//res.redirect('/?err');
 		}
+	
 	}
-});
+}
+);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
