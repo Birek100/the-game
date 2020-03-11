@@ -31,7 +31,7 @@ app.get('/register', (req, res) => {
 		const noneErrorRegister = registerHTML.replace('{error}', '');
 		res.send(noneErrorRegister);
 	}
-})
+});
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
 app.post('/register', (req, res) => {
  	const email = req.body.email;
@@ -50,12 +50,13 @@ app.post('/register', (req, res) => {
  				res.redirect('/'); 
 				return ;
 			}
-		}}
-else {fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+		}
+	}
+	else {fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
 		res.redirect('/'); 
-		return ;}
+		return ;
+	}
 });
-
 app.get('/login-auth', (req, res) => {
 	const name = req.query.name;
 	const password = req.query.password;
@@ -70,16 +71,7 @@ app.get('/login-auth', (req, res) => {
 			res.send(gameHTML);
 			return;
 		}
-		if (i == registeredUsers.length - 1) {
-			
-			//console.log('i rowne3')
-  			res.redirect('/?err'); 
-			return ;
-			//continue;
-			//res.redirect('/?err');
-		}
-	
 	}
-}
-);
+	res.redirect('/?err'); 
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
