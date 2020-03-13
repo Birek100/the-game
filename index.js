@@ -31,24 +31,30 @@ app.get('/register', (req, res) => {
 		const noneErrorRegister = registerHTML.replace('{error}', '');
 		res.send(noneErrorRegister);
 	}
-})
+});
 app.get('/errlogin', (req, res) => res.send(errloginHTML));
 app.post('/register', (req, res) => {
  	const email = req.body.email;
  	const password = req.body.password;
- 	const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
-	for(let i = 0; i < registeredUsers.length; i++) {
-		const user = registeredUsers[i];
-		const e = user.split(':')[0];
-		if (e == email) {
-			res.redirect('/register/?err'); 
-			return;
-		}	
-		else {
-  			fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
- 			res.redirect('/'); 
-			return ;
+ 	if (fs.existsSync('users.db')) {	
+ 		const registeredUsers = fs.readFileSync('users.db').toString().split("\n");
+		for(let i = 0; i < registeredUsers.length; i++) {
+			const user = registeredUsers[i];
+			const e = user.split(':')[0];
+			if (e == email) {
+				res.redirect('/register/?err'); 
+				return;
+				}	
+			else {
+  				fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+ 				res.redirect('/'); 
+				return ;
+			}
 		}
+	}
+	else {fs.appendFileSync('users.db', email + ':' + password +'\n', {flags: 'a+'});
+		res.redirect('/'); 
+		return ;
 	}
 });
 app.get('/login-auth', (req, res) => {
@@ -64,11 +70,8 @@ app.get('/login-auth', (req, res) => {
 			res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
 			res.send(gameHTML);
 			return;
-		}	
-		else {
-  			res.redirect('/?err'); 
-			return ;
 		}
 	}
+	res.redirect('/?err'); 
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
