@@ -4,8 +4,8 @@
   "description": "the game",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier"
-},
+    "prettier": "prettier --write ./.prettierrc **/*{.ts,.js,.json,.scss,.html,.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Birek100/the-game.git"
