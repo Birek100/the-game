@@ -13,7 +13,7 @@ app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
 app.get('/', (req, res) => {
-  if (Object.prototype.hasOwnPropertycall(req.query, 'err')) {
+  if (Object.prototype.hasOwnProperty.call(req.query, 'err')) {
     const errorLogin = loginHTML.replace(
       '{error}',
       '<div class=error>Login Error</div>',
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 });
 app.get('/game', (req, res) => res.send(gameHTML));
 app.get('/register', (req, res) => {
-  if (Object.prototype.hasOwnPropertycall(req.query, 'err')) {
+  if (Object.prototype.hasOwnProperty.call(req.query, 'err')) {
     const errorRegister = registerHTML.replace(
       '{error}',
       '<div class=error>User Exists</div>',
@@ -52,21 +52,21 @@ app.post('/register', (req, res) => {
         res.redirect('/register/?err');
         return;
       }
-      fs.appendFileSync('users.db', `${email} : ${password} \n`, {
+      fs.appendFileSync('users.db', `${email}:${password} \n`, {
         flags: 'a+',
       });
       res.redirect('/');
       return;
     }
   } else {
-    fs.appendFileSync('users.db', `${email} : ${password} \n`, {
+    fs.appendFileSync('users.db', `${email}:${password} \n`, {
       flags: 'a+',
     });
     res.redirect('/');
   }
 });
 app.get('/login-auth', (req, res) => {
-  const { name, password } = req.body;
+  const { name, password } = req.query;
   const registeredUsers = fs
     .readFileSync('users.db')
     .toString()
