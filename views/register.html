@@ -1,35 +1,48 @@
-<html> 
-<head> 
-	<link rel="stylesheet" type="text/css" href="/static/styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-	<script src="/static/scripts.js"></script>
-	<title>Register</title> 
-</head> 
-<body> 	
-	<div class="container">
-		<header class="masthead">
-			Penguin Game
-		</header>
-		{error}
-		<form class="login-form" action="/register" method="post" autocomplete="off">
-			<div class="login-form__row">
-				<label class="login-form__label" for="email">Email</label><br>
-				<input class="login-form__input" name="email" type="email" required>
-			</div>
-			<div class="login-form__row">
-				<label class="login-form__label">Password</label><br>
-				<input class="login-form__input" name="password" type="password" require>
-			</div>
-			<div class="login-form__row">
-				<input class="login-form__submit" type="submit" value="Submit">
-			</div>
-		</form>
-		<div class="content-reglog">
-			If you created account please <a href='/'>sign up</a>
-		</div>
-		<footer class="foot">
-			All rights reserved &copy	
-		</footer>
-	</div>
-</body> 
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/static/scripts.js"></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="masthead">
+        Penguin Game
+      </header>
+      {error}
+      <form
+        class="login-form"
+        action="/register"
+        method="post"
+        autocomplete="off"
+      >
+        <div class="login-form__row">
+          <label class="login-form__label" for="email">Email</label><br />
+          <input class="login-form__input" name="email" type="email" required />
+        </div>
+        <div class="login-form__row">
+          <label class="login-form__label">Password</label><br />
+          <input
+            class="login-form__input"
+            name="password"
+            type="password"
+            require
+          />
+        </div>
+        <div class="login-form__row">
+          <input class="login-form__submit" type="submit" value="Submit" />
+        </div>
+      </form>
+      <div class="content-reglog">
+        If you created account please <a href="/">sign up</a>
+      </div>
+      <footer class="foot">
+        All rights reserved &copy
+      </footer>
+    </div>
+  </body>
 </html>
