@@ -13,8 +13,6 @@ app.use(express.urlencoded());
 
 app.use('/static', express.static('public'));
 app.get('/', (req, res) => {
-  //let msg = require('./middleware.js');
-  //msg.hello;
   if (Object.prototype.hasOwnProperty.call(req.query, 'err')) {
     const errorLogin = loginHTML.replace(
       '{error}',
@@ -40,9 +38,9 @@ app.get('/register', (req, res) => {
   }
 });
 
-var handleErrlogin = require('./middleware.js')
+const handleErrlogin = require('./middleware.js')
 app.get('/errlogin', handleErrlogin);
-app.get('/errlogin2', handleErrlogin);
+
 
 //app.get('/errlogin', (req, res) => res.send(errloginHTML));
 //const errlogin = require('./middleware.js')
