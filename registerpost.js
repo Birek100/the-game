@@ -15,14 +15,14 @@ const registerPost = (req, res) => {
         return;
       }
       fs.appendFileSync('users.db', `${email}:${password} \n`, {
-        flags: 'a+',
+        flags: 'a+'
       });
       res.redirect('/');
       return;
     }
   } else {
     fs.appendFileSync('users.db', `${email}:${password} \n`, {
-      flags: 'a+',
+      flags: 'a+'
     });
     res.redirect('/');
   }

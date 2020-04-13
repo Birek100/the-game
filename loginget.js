@@ -5,7 +5,7 @@ const loginGet = (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'err')) {
     const errorLogin = loginHTML.replace(
       '{error}',
-      '<div class=error>Login Error</div>',
+      '<div class=error>Login Error</div>'
     );
     res.send(errorLogin);
   } else {

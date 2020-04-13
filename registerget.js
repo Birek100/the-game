@@ -5,7 +5,7 @@ const registerGet = (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'err')) {
     const errorRegister = registerHTML.replace(
       '{error}',
-      '<div class=error>User Exists</div>',
+      '<div class=error>User Exists</div>'
     );
     res.send(errorRegister);
   } else {

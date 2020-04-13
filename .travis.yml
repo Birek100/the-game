@@ -13,7 +13,6 @@ cache:
 script:
   - npm run prettier
   - npm run lint
-  - npm run test
 
 nofications:
   email: false
