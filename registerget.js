@@ -13,4 +13,5 @@ const registerGet = (req, res) => {
     res.send(noneErrorRegister);
   }
 };
+
 module.exports = registerGet;

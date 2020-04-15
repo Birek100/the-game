@@ -13,4 +13,5 @@ const loginGet = (req, res) => {
     res.send(noneErrorLogin);
   }
 };
+
 module.exports = loginGet;

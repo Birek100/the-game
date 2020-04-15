@@ -27,4 +27,5 @@ const registerPost = (req, res) => {
     res.redirect('/');
   }
 };
+
 module.exports = registerPost;

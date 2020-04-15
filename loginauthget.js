@@ -19,4 +19,5 @@ const loginAuthGet = (req, res) => {
   }
   res.redirect('/?err');
 };
+
 module.exports = loginAuthGet;
