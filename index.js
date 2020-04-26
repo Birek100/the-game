@@ -2,12 +2,12 @@ const express = require('express');
 
 const app = express();
 const port = 3000;
-const errLoginGet = require('./errloginget.js');
-const loginGet = require('./loginget.js');
-const registerGet = require('./registerget.js');
-const gameGet = require('./gameget.js');
-const registerPost = require('./registerpost.js');
-const loginAuthGet = require('./loginauthget.js');
+const errLoginGet = require('./middlewares/errloginget.js');
+const loginGet = require('./middlewares/loginget.js');
+const registerGet = require('./middlewares/registerget.js');
+const gameGet = require('./middlewares/gameget.js');
+const registerPost = require('./middlewares/registerpost.js');
+const loginAuthGet = require('./middlewares/loginauthget.js');
 
 app.use(express.urlencoded());
 app.use('/static', express.static('public'));
