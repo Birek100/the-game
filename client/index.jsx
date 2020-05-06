@@ -1,3 +1,6 @@
+require('./styles.scss')
+
+import img from './background.jpg';
 import React from 'react';
 import ReactDOM from 'react-dom'; 
 
