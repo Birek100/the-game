@@ -3,10 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './client/index.jsx',
+  entry: {
+    scripts: './client/index.jsx',
+    css: './client/styles.scss'
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: './scripts.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -15,7 +18,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-proposal-class-properties']
         }
       },
       {
