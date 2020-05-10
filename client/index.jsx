@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; 
+import ReactDOM from 'react-dom';
+//import App from './app.jsx';
 
-const name = 'React';
 ReactDOM.render(
-  <h1>Hello {name}!</h1>,
+  <App />,
   document.getElementById('root')
 );
