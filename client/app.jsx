@@ -15,10 +15,10 @@ class App extends Component {
   render() {
     const { number } = this.state;
     return (
-      <div classname="App">
+      <div className="app">
         <button onClick={this.getHigherNumber}>Plus +</button>
         <button onClick={this.getLowerNumber}>Minus -</button>
-        <p> Your actual state is {number} </p>
+        <p> Your actual number is {number} </p>
       </div>
     );
   }
