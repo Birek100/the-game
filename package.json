@@ -4,7 +4,7 @@
   "description": "the game",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write **/*{.ts,.js,.json,.scss,.html,.css}",
+    "prettier": "prettier --write **/*{.ts,.js,.json,.scss,.html,.css,.jsx}",
     "lint": "eslint *.js",
     "build": "webpack"
   },

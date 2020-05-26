@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-	state ={
-		number: 0
-	}
+  state = {
+    number: 0
+  };
 
-	getLowerNumber = () => {
-		console.log(this.state.number)
-		this.setState({number: this.state.number - 1})
-	};
-	getHigherNumber = () => {
-		console.log(this.state.number)
-		this.setState({number: this.state.number + 1})
-	};
+  getLowerNumber = () => {
+    this.setState(prevState => ({ number: prevState.number - 1 }));
+  };
+  getHigherNumber = () => {
+    this.setState(prevState => ({ number: prevState.number + 1 }));
+  };
 
-	render() {
-		return (
-			<div className="App">
-				<button onClick={this.getHigherNumber}>Plus +</button>
-				<button onClick={this.getLowerNumber}>Minus -</button>
-				<p> Your actual state is { this.state['number'] } </p>
-			</div>
-			);
-	}
-	
+  render() {
+    const { number } = this.state;
+    return (
+      <div classname="App">
+        <button onClick={this.getHigherNumber}>Plus +</button>
+        <button onClick={this.getLowerNumber}>Minus -</button>
+        <p> Your actual state is {number} </p>
+      </div>
+    );
+  }
 }
 
 export default App;
