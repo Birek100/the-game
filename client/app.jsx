@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { increase, decrease } from './action.jsx';
 
 class App extends Component {
   render() {
@@ -14,16 +12,5 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    number: state.number
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    getHigherNumber: () => dispatch(increase()),
-    getLowerNumber: () => dispatch(decrease())
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App
