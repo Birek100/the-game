@@ -1,24 +1,22 @@
 import React, {useRef, useState, useEffect} from 'react';
-import Graph from './graph.jsx'
 
 function Game () {
   const canvasRef = useRef(null);
   const [penguinx, setPenguinx] = useState(50);
   const [penguiny, setPenguiny] = useState(250);
-  const [penguinr, setPenguinr] = useState(20);
   console.log(canvasRef);
   
-const penguin = (ctx) => {
+let penguin = (ctx) => {
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(penguinx,250,20,20);
   }
 function update (ctx) {
-  const canvas = canvasRef.current
-  requestAnimationFrame(update, canvas)
-  console.log(ctx);
+  //const canvas = canvasRef.current
+  
   setPenguinx(penguinx + 1);
   //ctx.clearRect(0, 0, 500, 500);
-  console.log('update');
+  console.log(penguinx);
+  requestAnimationFrame(update)
 }
 
   function start (ctx) {
@@ -35,7 +33,7 @@ function update (ctx) {
     start(ctx);
    
     //let interval = setInterval(loop, 30);
-  }, [])
+  }, [update])
 
   return (
       <div>
