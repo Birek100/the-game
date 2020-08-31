@@ -1,3 +1,6 @@
+@import "components/menu/menu";
+@import "/canvas";
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -11,9 +14,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  background: url('background.jpg');
+  background-color: #b3b3ff;
   background-size: 100%;
-  background-attachment: fixed;
 }
 .container {
   width: 80%;
@@ -22,28 +24,16 @@ body {
   overflow: auto;
 }
 .masthead {
+  margin-top: 30px;
+  margin-bottom: 20px;
   text-align: center;
   font-family: 'Lobster', cursive;
-  font-size: 38px;
+  font-size: 40px;
 }
 .content {
   width: 75%;
-  float: left;
   padding: 40px;
   min-height: 540px;
-  display: inline;
-}
-.menu {
-  margin-top: 20px;
-  width: 25%;
-  background: #7e7e77;
-  float: left;
-  padding: 20px;
-  min-height: 540px;
-  border: 2px dashed;
-  border-radius: 15px;
-  font-size: 18px;
-  text-align: center;
 }
 .foot {
   margin-top: 15px;

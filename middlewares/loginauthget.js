@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const gameHTML = fs.readFileSync('./views/game.html', 'utf8');
+const menuHTML = fs.readFileSync('./views/menu.html', 'utf8');
 const loginAuthGet = (req, res) => {
   const { name, password } = req.query;
   const registeredUsers = fs
@@ -13,7 +13,7 @@ const loginAuthGet = (req, res) => {
     const p = user.split(':')[1];
     if (n === name && p === password) {
       res.cookie('sid', n + p, { maxAge: 900000, httpOnly: true });
-      res.send(gameHTML);
+      res.send(menuHTML);
       return;
     }
   }

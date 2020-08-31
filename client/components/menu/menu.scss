@@ -1,0 +1,25 @@
+.menu {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 24px;
+	color: black;
+	.menu__buttons {
+		display: block;
+		button{
+			font-family: 'Bangers';
+			color: white;
+			font-size: 24px;
+			width: 250px;
+			height: 70px;
+			border-radius: 8px;
+			border: 1px;
+			background-color: #66a3ff;
+			margin-top: 10px;
+			margin-bottom: 10px;
+				&:hover {
+						cursor: pointer;
+							}
+			}
+		}
+	}
+

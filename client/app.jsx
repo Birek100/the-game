@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
+import Counter from './container.jsx';
+import Menu from './components/menu/menu.jsx'
+import Game from './components/game/game.jsx'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/reducer.jsx';
+
+const store = createStore(rootReducer);
 
 class App extends Component {
-  render() {
-    const { number, getHigherNumber, getLowerNumber } = this.props;
-    return (
-      <div className="app">
-        <button onClick={getHigherNumber}>Plus +</button>
-        <button onClick={getLowerNumber}>Minus -</button>
-        <p> Your actual number is {number} </p>
-      </div>
-    );
-  }
-}
-
-export default App;
+    render() {
+        return (  
+          <div className="app">
+            <Provider store={store}>
+              <BrowserRouter>
+                  <Menu />
+                  <Counter />
+                  <Game exact path="/game" component={Game} />
+                
+              </BrowserRouter>
+            </Provider>,
+            </div>
+          );
+        }
+      }
+ export default App;
