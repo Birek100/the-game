@@ -10,17 +10,17 @@ let penguin = (ctx) => {
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(penguinx,250,20,20);
   }
-function update (ctx) {
-  //const canvas = canvasRef.current
-  
-  setPenguinx(penguinx + 1);
-  //ctx.clearRect(0, 0, 500, 500);
+function update () {
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, 500, 500);
+  setPenguinx(prevpenguinx => prevpenguinx + 1);
   console.log(penguinx);
   requestAnimationFrame(update)
 }
 
   function start (ctx) {
-    const canvas = canvasRef.current
+    const canvas = canvasRef.current;
     penguin(ctx);
     requestAnimationFrame(update)
   }
