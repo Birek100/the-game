@@ -17,7 +17,11 @@ class App extends Component {
               <BrowserRouter>
                   <Menu />
                   <Counter />
-                  <Game exact path="/game" component={Game} />
+                  <Game
+                   exact
+                   path="/game"
+                   component={Game}
+                   />
                 
               </BrowserRouter>
             </Provider>,
