@@ -7,10 +7,10 @@ const penguin = (ctx, penguinx, penguiny) => {
 */
 function Game () {
   const canvasRef = useRef(null);
-  let [score, setScore] = useState(10);
+  //let [score, setScore] = useState(10);
   let [penguinx, setPenguinx] = useState(240);
   let [penguiny, setPenguiny] = useState(450);
-  let scorex = 10;
+  let score = 0;
   let myObstacles = [];
   let myDiamonds = [];
   let frame = 0;
@@ -34,9 +34,15 @@ function component(width, height, color, x, y, type) {
                 this.x, 
                 this.y,
                 this.width, this.height);
-        } else {
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        } 
+      else if (type == "text") {
+          ctx.font = this.width + " " + this.height;
+          ctx.fillStyle = color;
+          ctx.fillText(this.text, this.x, this.y);
+      }
+      else {
+      ctx.fillStyle = color;
+      ctx.fillRect(this.x, this.y, this.width, this.height);
       }
     }
     this.newPosition = function() {
@@ -74,6 +80,7 @@ function everyinterval(frame, n) {
 }
 
 let penguin = new component(20, 20, "#FF0000", 240, 450)
+let myScore = new component("30px", "Consolas", "black", 300, 40, "text");
 
 const render = () => {
   const canvas = canvasRef.current;
@@ -86,12 +93,12 @@ const render = () => {
       }
     }
     for (let i = 0; i < myDiamonds.length; i += 1) {
-    if (penguin.meet(myDiamonds[i])) { scorex += 10; console.log(scorex); myDiamonds[i].width=null, myDiamonds[i].height=null, myDiamonds[i].x=null, myDiamonds[i].y=null }
+    if (penguin.meet(myDiamonds[i])) { score += 10; myDiamonds[i].width=null, myDiamonds[i].height=null, myDiamonds[i].x=null, myDiamonds[i].y=null }
     };
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     penguin.newPosition();
     penguin.draw(ctx);
-    frame += 2
+    frame += 2;
       if (frame == 1 || everyinterval(frame, 200)) {
         let minWidth = 50;
         let maxWidth = 350;
@@ -117,6 +124,8 @@ const render = () => {
         myDiamonds[i].y += +2;
         myDiamonds[i].draw(ctx);
       }
+      myScore.text = "SCORE: " + score;
+      myScore.draw(ctx);
     requestAnimationFrame(render) 
 }
 
