@@ -12,7 +12,9 @@ function Game () {
   let [penguiny, setPenguiny] = useState(450);
   let scorex = 10;
   let myObstacles = [];
+  let myDiamonds = [];
   let frame = 0;
+  
 
 
 function component(width, height, color, x, y, type) {
@@ -40,12 +42,12 @@ function component(width, height, color, x, y, type) {
     this.newPosition = function() {
         this.x += this.speedX;
         this.y += this.speedY;
-     /*     if (this.x < 0) {
+          if (this.x < 0) {
             this.x = 0
           }
           if (this.x + this.width > 500) {
             this.x = 500 - this.width
-          }         */
+          }         
     }    
     this.meet = function(otherobj) {
         const myleft = this.x;
@@ -72,8 +74,6 @@ function everyinterval(frame, n) {
 }
 
 let penguin = new component(20, 20, "#FF0000", 240, 450)
-let obstacle = new component(50, 50, "blue", 120, 50)
-let diamond = new component(20, 20, "/static/diamond-small.jpg", 260, 30, "image")
 
 const render = () => {
   const canvas = canvasRef.current;
@@ -85,30 +85,38 @@ const render = () => {
       //  return; 
       }
     }
+    for (let i = 0; i < myDiamonds.length; i += 1) {
+    if (penguin.meet(myDiamonds[i])) { scorex += 10; console.log(scorex); myDiamonds[i].width=null, myDiamonds[i].height=null, myDiamonds[i].x=null, myDiamonds[i].y=null }
+    };
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     penguin.newPosition();
     penguin.draw(ctx);
-    frame += 1
-    console.log(myObstacles)
-      if (frame == 1 || everyinterval(frame, 150)) {
-     let maxHeight = 200;
-      let x = canvas.width;
-       let minWidth = 20;
-       let maxWidth = 200;
-       let width = Math.floor(Math.random()*(maxWidth-minWidth+1)+minWidth);
-       let minGap = 50;
-       let maxGap = 200;
-       let gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap) 
+    frame += 2
+      if (frame == 1 || everyinterval(frame, 200)) {
+        let minWidth = 50;
+        let maxWidth = 350;
+        let width = Math.floor(Math.random()*(maxWidth-minWidth+1)+minWidth);
+        let minGap = 40;
+        let maxGap = 100;
+        let gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap) 
         myObstacles.push(new component(width, 20, "green", 0, -50));
-       myObstacles.push(new component(width, 20, "green", 500-width, -50));
-    //    myObstacles.push(new component(50, 50, "green", 80, -50));
-    //    myObstacles.push(new component(50, 50, "green", 300, -50));
+        myObstacles.push(new component(500-width-gap, 20, "green", width+gap, -50));
       }
       for (let i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].y += +1;
+        myObstacles[i].y += +2;
         myObstacles[i].draw(ctx);
       }
-      console.log(myObstacles);
+      if (frame == 100 || everyinterval(frame - 100, 200)) {
+        let minWidth = 100;
+        let maxWidth = 300;
+        let width = Math.floor(Math.random()*(maxWidth-minWidth+1)+minWidth);
+        myDiamonds.push(new component(20, 20, "/static/diamond-small.jpg", width, -50, "image"));
+        
+      }
+      for (let i = 0; i < myDiamonds.length; i += 1) {
+        myDiamonds[i].y += +2;
+        myDiamonds[i].draw(ctx);
+      }
     requestAnimationFrame(render) 
 }
 
@@ -126,10 +134,10 @@ document.onkeydown = function(e) {
     }
 
 const penguinRight = () => {
-  penguin.speedX = +2;
+  penguin.speedX = +3;
 }
     const penguinLeft = () => {
-  penguin.speedX = -2;
+  penguin.speedX = -3;
 } 
 
 const clearmove = () => {
