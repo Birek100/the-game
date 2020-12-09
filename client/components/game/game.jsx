@@ -106,18 +106,18 @@ const render = () => {
         let minGap = 40;
         let maxGap = 100;
         let gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap) 
-        myObstacles.push(new component(width, 20, "green", 0, -50));
-        myObstacles.push(new component(500-width-gap, 20, "green", width+gap, -50));
+        myObstacles.push(new component(width, 20, "green", 0, -20));
+        myObstacles.push(new component(500-width-gap, 20, "green", width+gap, -20));
       }
       for (let i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += +2;
         myObstacles[i].draw(ctx);
       }
-      if (frame == 100 || everyinterval(frame - 100, 200)) {
+      if (frame == 100 || everyinterval(frame + 100, 200)) {
         let minWidth = 100;
         let maxWidth = 300;
         let width = Math.floor(Math.random()*(maxWidth-minWidth+1)+minWidth);
-        myDiamonds.push(new component(20, 20, "/static/diamond-small.jpg", width, -50, "image"));
+        myDiamonds.push(new component(20, 20, "/static/diamond-small.jpg", width, -20, "image"));
         
       }
       for (let i = 0; i < myDiamonds.length; i += 1) {
