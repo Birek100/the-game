@@ -10,7 +10,7 @@ class Component {
     this.y = y;
     this.speedX = 0;
     this.speedY = 0;
-    this.draw = function (ctx) {
+    this.draw = function(ctx) {
       if (type === 'image') {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       } else if (type === 'text') {
@@ -22,7 +22,7 @@ class Component {
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
     };
-    this.newPosition = function () {
+    this.newPosition = function() {
       this.x += this.speedX;
       this.y += this.speedY;
       if (this.x < 0) {
@@ -32,7 +32,7 @@ class Component {
         this.x = 500 - this.width;
       }
     };
-    this.meet = function (otherobj) {
+    this.meet = function(otherobj) {
       const myleft = this.x;
       const myright = this.x + this.width;
       const mytop = this.y;
