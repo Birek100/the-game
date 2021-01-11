@@ -1,29 +1,26 @@
-function controlls (obj) {
-
-document.onkeyup = function(e) {
-    clearmove(obj);
+/* eslint-disable no-param-reassign */
+function controlls(obj) {
+  const moveRight = (x) => {
+    obj.speedX = +x;
   };
-
-  document.onkeydown = function(e) {
-    if (e.keyCode == 37) {
-      moveLeft(obj);
+  const moveLeft = (x) => {
+    obj.speedX = -x;
+  };
+  const clearmove = (x) => {
+    obj.speedX = x;
+    obj.speedY = x;
+  };
+  document.onkeyup = function () {
+    clearmove(0);
+  };
+  document.onkeydown = function (e) {
+    if (e.keyCode === 37) {
+      moveLeft(3);
     }
-    if (e.keyCode == 39) {
-      moveRight(obj);
+    if (e.keyCode === 39) {
+      moveRight(3);
     }
   };
-
-  const moveRight = (obj) => {
-    obj.speedX = +3;
-  };
-  const moveLeft = (obj) => {
-    obj.speedX = -3;
-  };
-
-  const clearmove = (obj) => {
-    obj.speedX = 0;
-    obj.speedY = 0;
-  }; 
 }
 
-export default controlls
+export default controlls;
