@@ -5,6 +5,7 @@ import everyInterval from './everyInterval';
 
 function Game() {
   const canvasRef = useRef(null);
+
   const myObstacles = [];
   const myDiamonds = [];
   let score = 0;
@@ -15,11 +16,20 @@ function Game() {
   const finishLine = new Component(500, 5, 'black', 0, -20);
   controlls(penguin);
 
+  function restart() {
+    document.location.href = '';
+  }
+
   const render = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
+
     for (let i = 0; i < myObstacles.length; i += 1) {
       if (penguin.meet(myObstacles[i])) {
+        const gameOver = window.confirm('YOU LOOSE. TRY ONCE MORE??');
+        if (gameOver === true) {
+          restart();
+        }
         cancelAnimationFrame(render);
         return;
       }
@@ -34,6 +44,7 @@ function Game() {
       }
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     penguin.newPosition();
     penguin.draw(ctx);
     frame += 2;
@@ -75,6 +86,12 @@ function Game() {
       finishLine.draw(ctx);
     }
     if (penguin.meet(finishLine)) {
+      const gameOver = window.confirm(
+        `YOU WIN AND SCORE ${score} TRY ONCE MORE??`
+      );
+      if (gameOver === true) {
+        restart();
+      }
       cancelAnimationFrame(render);
       return;
     }
@@ -84,6 +101,46 @@ function Game() {
     requestAnimationFrame(render);
   };
 
+  /* function restart() {
+       document.location.href=""
+    cancelAnimationFrame(render);
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    const myObstacles = [];
+  const myDiamonds = [];
+  let score = 0;
+  let frame = 0;
+
+  let penguin = new Component(20, 20, '#FF0000', 240, 450);
+  const myScore = new Component('30px', 'Consolas', 'black', 300, 40, 'text');
+  const finishLine = new Component(500, 5, 'black', 0, -20);
+    render();
+  } */
+  /* function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(':');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+  function back() {
+   let cook = getCookie('sid')
+   console.log (cook)
+
+onClick={() => back()}
+     }
+ */
+
   useEffect(() => {
     render();
   }, []);
@@ -91,6 +148,8 @@ function Game() {
   return (
     <div className="game">
       <canvas id="canvas" ref={canvasRef} width={500} height={500} />
+
+      <button>back</button>
     </div>
   );
 }

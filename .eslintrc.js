@@ -40,6 +40,11 @@ module.exports = {
   rules: {
     'linebreak-style': ['error', 'windows'],
     'comma-dangle': ['error', 'never'],
-    'class-methods-use-this': ['error', { exceptMethods: ['render'] }]
+    'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
+    'operator-linebreak': 'off',
+    'space-before-function-paren': [
+      'error',
+      { anonymous: 'ignore', named: 'ignore', asyncArrow: 'ignore' }
+    ]
   }
 };

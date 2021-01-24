@@ -10,6 +10,7 @@ const registerPost = require('./middlewares/registerpost.js');
 const loginAuthGet = require('./middlewares/loginauthget.js');
 const optionsGet = require('./middlewares/optionsget.js');
 const gameGet = require('./middlewares/gameget.js');
+const logOut = require('./middlewares/logout.js');
 
 app.use(express.urlencoded());
 app.use('/static', express.static('public'));
@@ -22,4 +23,6 @@ app.post('/register', registerPost);
 app.get('/login-auth', loginAuthGet);
 app.get('/options', optionsGet);
 app.get('/game', gameGet);
+app.get('/logout', logOut);
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

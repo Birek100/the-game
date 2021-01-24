@@ -10,10 +10,10 @@ function controlls(obj) {
     obj.speedX = x;
     obj.speedY = x;
   };
-  document.onkeyup = function () {
+  document.onkeyup = function() {
     clearmove(0);
   };
-  document.onkeydown = function (e) {
+  document.onkeydown = function(e) {
     if (e.keyCode === 37) {
       moveLeft(3);
     }

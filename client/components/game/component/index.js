@@ -43,10 +43,10 @@ class Component {
       const otherbottom = otherobj.y + otherobj.height;
       let meet = true;
       if (
-        mybottom < othertop
-        || mytop > otherbottom
-        || myright < otherleft
-        || myleft > otherright
+        mybottom < othertop ||
+        mytop > otherbottom ||
+        myright < otherleft ||
+        myleft > otherright
       ) {
         meet = false;
       }

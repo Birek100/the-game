@@ -13,11 +13,11 @@ function Menu() {
         <button type="button" className="menu__button">
           OPTIONS
         </button>
-        <Link className="menu__link" to="/logout">
+        <a className="menu__link" href="/logout">
           <button type="button" className="menu__button">
             LOGOUT
           </button>
-        </Link>
+        </a>
       </div>
     </div>
   );
