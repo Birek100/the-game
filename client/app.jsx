@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import Counter from './container.jsx';
 import Menu from './components/menu/menu.jsx';
 import Game from './components/game/game.jsx';
+import About from './components/about/about.jsx';
 import rootReducer from './reducers/reducer.jsx';
 
 const store = createStore(rootReducer);
@@ -16,8 +17,9 @@ class App extends Component {
         <Provider store={store}>
           <BrowserRouter>
             <Route path="/login-auth" component={Menu} />
-            <Route path="/login-auth" component={Counter} />
             <Route exact path="/game" component={Game} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/about" component={Counter} />
           </BrowserRouter>
         </Provider>
       </div>

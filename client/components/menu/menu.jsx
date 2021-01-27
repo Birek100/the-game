@@ -10,9 +10,11 @@ function Menu() {
             START GAME
           </button>
         </Link>
-        <button type="button" className="menu__button">
-          OPTIONS
-        </button>
+        <Link className="menu__link" to="/about">
+          <button type="button" className="menu__button">
+            ABOUT
+          </button>
+        </Link>
         <a className="menu__link" href="/logout">
           <button type="button" className="menu__button">
             LOGOUT

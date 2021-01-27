@@ -2,9 +2,14 @@ import React, { useRef, useEffect } from 'react';
 import Component from './component';
 import controlls from './controlls';
 import everyInterval from './everyInterval';
+import buttonBack from '../../scripts/buttonback';
 
 function Game() {
   const canvasRef = useRef(null);
+
+  function restart() {
+    document.location.href = '';
+  }
 
   const myObstacles = [];
   const myDiamonds = [];
@@ -15,10 +20,6 @@ function Game() {
   const myScore = new Component('30px', 'Consolas', 'black', 300, 40, 'text');
   const finishLine = new Component(500, 5, 'black', 0, -20);
   controlls(penguin);
-
-  function restart() {
-    document.location.href = '';
-  }
 
   const render = () => {
     const canvas = canvasRef.current;
@@ -101,46 +102,6 @@ function Game() {
     requestAnimationFrame(render);
   };
 
-  /* function restart() {
-       document.location.href=""
-    cancelAnimationFrame(render);
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    const myObstacles = [];
-  const myDiamonds = [];
-  let score = 0;
-  let frame = 0;
-
-  let penguin = new Component(20, 20, '#FF0000', 240, 450);
-  const myScore = new Component('30px', 'Consolas', 'black', 300, 40, 'text');
-  const finishLine = new Component(500, 5, 'black', 0, -20);
-    render();
-  } */
-  /* function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(':');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-  function back() {
-   let cook = getCookie('sid')
-   console.log (cook)
-
-onClick={() => back()}
-     }
- */
-
   useEffect(() => {
     render();
   }, []);
@@ -149,7 +110,12 @@ onClick={() => back()}
     <div className="game">
       <canvas id="canvas" ref={canvasRef} width={500} height={500} />
 
-      <button>back</button>
+      <button
+        type="button"
+        className="menu__button"
+        onClick={() => buttonBack()}>
+        BACK
+      </button>
     </div>
   );
 }
