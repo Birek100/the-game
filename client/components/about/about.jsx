@@ -1,5 +1,6 @@
 import React from 'react';
-import buttonBack from '../../scripts/buttonback';
+import goBack from '../../scripts/goback';
+import Counter from '../../container.jsx';
 
 function About() {
   return (
@@ -7,10 +8,8 @@ function About() {
       <div className="about__content">
         <p>ble ble ble ble ble</p>
       </div>
-      <button
-        type="button"
-        className="menu__button"
-        onClick={() => buttonBack()}>
+      <Counter />
+      <button type="button" className="menu__button" onClick={() => goBack()}>
         BACK
       </button>
     </div>

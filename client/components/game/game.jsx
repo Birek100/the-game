@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Component from './component';
 import controlls from './controlls';
 import everyInterval from './everyInterval';
-import buttonBack from '../../scripts/buttonback';
+import goBack from '../../scripts/goback';
 
 function Game() {
   const canvasRef = useRef(null);
@@ -16,7 +16,14 @@ function Game() {
   let score = 0;
   let frame = 0;
 
-  const penguin = new Component(20, 20, '#FF0000', 240, 450);
+  const penguin = new Component(
+    20,
+    20,
+    '/static/images/penguin.png',
+    240,
+    450,
+    'image'
+  );
   const myScore = new Component('30px', 'Consolas', 'black', 300, 40, 'text');
   const finishLine = new Component(500, 5, 'black', 0, -20);
   controlls(penguin);
@@ -58,9 +65,9 @@ function Game() {
       const minGap = 40;
       const maxGap = 100;
       const gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-      myObstacles.push(new Component(width, 20, 'green', 0, -20));
+      myObstacles.push(new Component(width, 20, '#3366ff', 0, -20));
       myObstacles.push(
-        new Component(500 - width - gap, 20, 'green', width + gap, -20)
+        new Component(500 - width - gap, 20, '#3366ff', width + gap, -20)
       );
     }
     for (let i = 0; i < myObstacles.length; i += 1) {
@@ -74,7 +81,7 @@ function Game() {
         Math.random() * (maxWidth - minWidth + 1) + minWidth
       );
       myDiamonds.push(
-        new Component(20, 20, '/static/diamond-small.jpg', width, -20, 'image')
+        new Component(20, 20, '/static/images/diamond.png', width, -20, 'image')
       );
     }
     for (let i = 0; i < myDiamonds.length; i += 1) {
@@ -109,11 +116,7 @@ function Game() {
   return (
     <div className="game">
       <canvas id="canvas" ref={canvasRef} width={500} height={500} />
-
-      <button
-        type="button"
-        className="menu__button"
-        onClick={() => buttonBack()}>
+      <button type="button" className="menu__button" onClick={() => goBack()}>
         BACK
       </button>
     </div>
