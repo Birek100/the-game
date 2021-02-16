@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class Counter extends Component {
   render() {
     const { number, getHigherNumber, getLowerNumber } = this.props;
+
     return (
       <div className="counter">
         <button onClick={getHigherNumber}>Plus +</button>

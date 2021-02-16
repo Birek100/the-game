@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
@@ -9,11 +10,11 @@ function Menu() {
             START GAME
           </button>
         </a>
-        <a className="menu__link" href="/about">
+        <Link className="menu__link" to="/about">
           <button type="button" className="menu__button">
             ABOUT
           </button>
-        </a>
+        </Link>
         <a className="menu__link" href="/logout">
           <button type="button" className="menu__button">
             LOGOUT

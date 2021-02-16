@@ -95,7 +95,7 @@ function Game() {
     }
     if (penguin.meet(finishLine)) {
       const gameOver = window.confirm(
-        `YOU WIN AND SCORE ${score} TRY ONCE MORE??`
+        `YOU FINISH RACE AND GET ${score} TRY ONCE MORE??`
       );
       if (gameOver === true) {
         restart();
