@@ -1,3 +1,9 @@
+@import 'components/menu/_menu.scss';
+@import 'components/game/_game.scss';
+@import 'components/counter/_counter.scss';
+@import 'components/about/_about.scss';
+@import '/canvas';
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -10,10 +16,10 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+
 body {
-  background: url('background.jpg');
-  background-size: 100%;
-  background-attachment: fixed;
+  background-color: #b3b3ff;
+  //background-size: 100%;
 }
 .container {
   width: 80%;
@@ -22,31 +28,20 @@ body {
   overflow: auto;
 }
 .masthead {
+  margin-top: 30px;
+  margin-bottom: 20px;
   text-align: center;
   font-family: 'Lobster', cursive;
-  font-size: 38px;
+  font-size: 40px;
 }
 .content {
   width: 75%;
-  float: left;
   padding: 40px;
   min-height: 540px;
-  display: inline;
-}
-.menu {
-  margin-top: 20px;
-  width: 25%;
-  background: #7e7e77;
-  float: left;
-  padding: 20px;
-  min-height: 540px;
-  border: 2px dashed;
-  border-radius: 15px;
-  font-size: 18px;
-  text-align: center;
 }
 .foot {
-  margin-top: 15px;
+  font-family: 'Redressed', cursive;
+  margin-top: 25px;
   clear: both;
   text-align: center;
   padding: 20px;
@@ -54,28 +49,60 @@ body {
   color: #8000ff;
 }
 .content-reglog {
+  font-family: 'Redressed', cursive;
   margin-top: 50px;
   text-align: center;
-  color: #ffff66;
+  color: #4169e1;
   font-size: 24px;
+  & a {
+    color: #ff6347;
+    &:visited {
+      text-decoration: none !important;
+    }
+    &:hover {
+      color: #ff6347;
+    }
+  }
 }
-.content-reglog a {
-  color: #ff3377;
-}
-.content-reglog a:hover {
-  color: #ff3377;
-}
+
 .login-form {
   text-align: center;
   margin-top: 30px;
-}
-.login-form__input {
-  border-radius: 5px;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-.login-form__submit {
-  border-radius: 5px;
+  font-family: 'Redressed', cursive;
+  &__row {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  &__input {
+    border-radius: 10px;
+    border: 2px solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 220px;
+    height: 30px;
+    padding: 8px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__submit {
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 120px;
+    height: 35px;
+    background-color: #e6e6fa;
+    font-size: 16px;
+    color: #4169e1;
+    font-weight: bold;
+    font-family: inherit;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
 }
 .error {
   height: 60px;
