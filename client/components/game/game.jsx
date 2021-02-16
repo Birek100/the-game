@@ -89,7 +89,7 @@ function Game() {
       myDiamonds[i].draw(ctx);
     }
 
-    if (frame > 1050) {
+    if (frame > 10050) {
       finishLine.y += 2;
       finishLine.draw(ctx);
     }
