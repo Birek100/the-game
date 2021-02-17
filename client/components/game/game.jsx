@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Component from './component';
-import controlls from './controlls';
+import { moveRight, moveLeft, clearMove } from './controlls';
 import everyInterval from './everyInterval';
 import goBack from '../../scripts/goback';
 
@@ -26,7 +26,6 @@ function Game() {
   );
   const myScore = new Component('30px', 'Consolas', 'black', 300, 40, 'text');
   const finishLine = new Component(500, 5, 'black', 0, -20);
-  controlls(penguin);
 
   const render = () => {
     const canvas = canvasRef.current;
@@ -107,6 +106,18 @@ function Game() {
     myScore.text = `SCORE: ${score}`;
     myScore.draw(ctx);
     requestAnimationFrame(render);
+  };
+
+  document.onkeyup = function() {
+    clearMove(penguin, 0);
+  };
+  document.onkeydown = function(e) {
+    if (e.keyCode === 37) {
+      moveLeft(penguin, 3);
+    }
+    if (e.keyCode === 39) {
+      moveRight(penguin, 3);
+    }
   };
 
   useEffect(() => {
