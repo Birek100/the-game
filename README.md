@@ -26,7 +26,7 @@ npm run build - build project
 
 ### SCREENSHOTS:
 
-![penguin_1](https://user-images.githubusercontent.com/48009602/127779905-514ef0d8-305d-4074-9d32-93c1a4193a6c.jpg)
+![penguin_1](https://user-images.githubusercontent.com/48009602/127781843-c0c601d4-c4b1-4cd5-a222-eff73d59c3d7.jpg)
 
 
 
